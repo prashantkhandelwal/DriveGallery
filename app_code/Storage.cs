@@ -8,15 +8,22 @@ using Biggy.JSON;
 public class Storage : Albums
 {
     IBiggyStore<Albums> albumStore = null;
+    IBiggyStore<Settings> settingStore = null;
     List<string> AlbumList = new List<string>();
 
-    public Storage() { albumStore = new JsonStore<Albums>(dbPath: HttpRuntime.AppDomainAppPath); }
-    public Storage(string[] Albumname)
+    public Storage(string Albumname)
     {
+        settingStore = new JsonStore<Settings>(dbPath: HttpRuntime.AppDomainAppPath);
         albumStore = new JsonStore<Albums>(dbPath: HttpRuntime.AppDomainAppPath);
-        AlbumList.AddRange(Albumname);
+        AlbumList.Add(Albumname);
     }
-    public void Refresh()
+    //public Storage(string[] Albumname)
+    //{
+    //    settingStore = new JsonStore<Settings>(dbPath: HttpRuntime.AppDomainAppPath);
+    //    albumStore = new JsonStore<Albums>(dbPath: HttpRuntime.AppDomainAppPath);
+    //    AlbumList.AddRange(Albumname);
+    //}
+    void Refresh()
     {
         var store = new BiggyList<Albums>(albumStore);
         List<Albums> albumContent = new List<Albums>();
@@ -47,21 +54,42 @@ public class Storage : Albums
 
     public List<Albums> GetAlbumDetails(string Albumname)
     {
+        ResetAlbum();
+        Refresh();
         return albumStore.Load().FindAll(x => x.AlbumName == Albumname);
+    }
+
+    public void UpdateAlbums()
+    {
+        for (int i = 0; i < AlbumList.Count; i++)
+        {
+            var store = new BiggyList<Settings>(settingStore);
+            Settings setting = new Settings();
+            setting.AlbumName = AlbumList[i];
+            store.Add(setting);
+        }
     }
 
     public List<string> GetAllAlbums()
     {
         List<string> str = new List<string>();
-        var l = albumStore.Load().GroupBy(x => x.AlbumName).Select(y => y.First()).ToList();
-        foreach (var item in l)
+        if (settingStore.Load().Count > 0)
         {
-            str.Add(item.AlbumName);
+            foreach (var item in settingStore.Load().GroupBy(x => x.AlbumName).Select(y => y.First()).ToList())
+            {
+                str.Add(item.AlbumName);
+            }
         }
+       
         return str;
     }
 
-    public void Clear()
+    public void ResetSettings()
+    {
+        if (settingStore.Load() != null)
+            settingStore.Clear();
+    }
+    void ResetAlbum()
     {
         if (albumStore.Load() != null)
             albumStore.Clear();
