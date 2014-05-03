@@ -1,0 +1,29 @@
+﻿@{
+    if (IsPost)
+    {
+        if (Request["albumlist"].ToString().Trim() != "")
+        {
+            string[] albumlist = Request["albumlist"].Split(',');
+            Storage store = new Storage(albumlist);
+            store.Clear();
+            store.Refresh();
+        }
+    }
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Settings</title>
+</head>
+<body>
+    <form action="settings" method="post">
+        <label>Album name (comma seperated)</label>
+        <input id="txtAlbums" type="text" name="albumlist" />
+        <br />
+        <input type="submit" value="Refresh" />
+    </form>
+</body>
+</html>

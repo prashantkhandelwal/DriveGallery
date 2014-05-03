@@ -1,0 +1,35 @@
+﻿<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="~/Content/scripts/LazyLoad.js"></script>
+<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<script>
+    $(document).ready(function () {
+        $("img.lazy").lazyload({
+            effect: "fadeIn"
+        });
+    });
+</script>
+
+@{
+    if (Request.QueryString.Count == 0)
+    {
+        Response.Redirect("Default.cshtml", true);
+    }
+    Page.Title = "View Album";
+}
+
+<div>
+    @{
+
+        var name = Request.QueryString["name"].ToString();
+        Storage store = new Storage();
+        List<Albums> albumImages = store.GetAlbumDetails(name);
+
+        foreach (var image in albumImages)
+        {
+            <ul style="display: inline;">
+                <a href="@image.DownloadURL"><img class="lazy" data-original="@image.ThumbnailLink" src="@image.ThumbnailLink" alt="@image.Title" /></a>
+            </ul>
+        }
+    }
+
+</div>

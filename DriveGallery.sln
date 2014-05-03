@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DriveGallery(1)", "http://localhost:2352", "{C2B1FC96-5602-403C-BDE1-06A5CA03C24E}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_2352"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\Desktop\DriveGallery\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2352\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_2352"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\Desktop\DriveGallery\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2352\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\..\..\..\Desktop\DriveGallery\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2B1FC96-5602-403C-BDE1-06A5CA03C24E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2B1FC96-5602-403C-BDE1-06A5CA03C24E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
