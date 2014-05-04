@@ -12,13 +12,13 @@ public class Albums
     public string AlbumName { get; set; }
     public string DownloadURL { get; set; }
 
-    //public string ViewURL
-    //{
-    //    get
-    //    {
-    //        return DownloadURL.Replace("&export=download", string.Empty);
-    //    }
-    //}
+    public string ViewURL
+    {
+        get
+        {
+            return DownloadURL.Replace("&export=download", "&export=view");
+        }
+    }
     public string ThumbnailLink { get; set; }
-    
+
 }
