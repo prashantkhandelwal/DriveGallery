@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Biggy;
-using Biggy.JSON;
 
 public class Albums
 {
@@ -11,7 +6,6 @@ public class Albums
     public string Title { get; set; }
     public string AlbumName { get; set; }
     public string DownloadURL { get; set; }
-
     public string ViewURL
     {
         get
@@ -20,5 +14,4 @@ public class Albums
         }
     }
     public string ThumbnailLink { get; set; }
-
 }
