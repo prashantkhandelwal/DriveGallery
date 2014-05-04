@@ -33,7 +33,7 @@
     </div>
     <div class="container theme-showcase" role="main">
         @{
-            Storage store = new Storage("");
+            Storage store = new Storage();
             List<string> albums = store.GetAllAlbums();
             if (albums.Count > 0)
             {
