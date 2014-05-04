@@ -60,7 +60,6 @@ public class GoogleDrive
             }
             catch (Exception e)
             {
-                Console.WriteLine("An error occurred: " + e.Message);
                 request.PageToken = null;
             }
         } while (!String.IsNullOrEmpty(request.PageToken));
@@ -82,7 +81,6 @@ public class GoogleDrive
             }
             catch (Exception e)
             {
-                Console.WriteLine("An error occurred: " + e.Message);
                 request.PageToken = null;
             }
         } while (!String.IsNullOrEmpty(request.PageToken));
