@@ -91,7 +91,6 @@ public class GoogleDrive
     {
         File file = service.Files.Get(fileID).Execute();
         var bytes = service.HttpClient.GetByteArrayAsync(file.DownloadUrl);
-        //System.IO.File.WriteAllBytes(file.Title, await bytes);
         return  bytes.Result;
     }
 
