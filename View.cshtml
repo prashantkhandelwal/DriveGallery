@@ -56,10 +56,21 @@
                 @foreach (var image in albumImages)
                 {
                     <div class="col-xs-6 col-md-3">
-                        <a class="thumbnail" href="@image.DownloadURL"><img class="lazy" data-original="@image.ThumbnailLink" src="@image.ThumbnailLink" alt="@image.Title" /></a>
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <h3>@image.Title</h3>
+                                <p>
+                                    @*<a class="thumbnail" href="@image.DownloadURL"><img class="lazy" data-original="@image.ThumbnailLink" src="@image.ThumbnailLink" alt="@image.Title" /></a>*@
+                                    <img class="lazy" data-original="@image.ThumbnailLink" data-src="holder.js/300x200" src="@image.ThumbnailLink" alt="@image.Title" />
+                                </p>
+                                <p>
+                                    <a href="@image.ViewURL" class="btn btn-primary">View</a>
+                                    <a href="@image.DownloadURL" class="btn btn-default">Download</a>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 }
-
             </div>
         }
 

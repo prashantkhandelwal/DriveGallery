@@ -11,6 +11,10 @@ public class Storage : Albums
     IBiggyStore<Settings> settingStore = null;
     List<string> AlbumList = new List<string>();
 
+    public Storage()
+    {
+        settingStore = new JsonStore<Settings>(dbPath: HttpRuntime.AppDomainAppPath);
+    }
     public Storage(string Albumname)
     {
         settingStore = new JsonStore<Settings>(dbPath: HttpRuntime.AppDomainAppPath);
