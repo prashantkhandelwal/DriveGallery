@@ -43,11 +43,11 @@ public class Storage : Albums
                 foreach (var image in contents)
                 {
                     Albums album = new Albums();
-                    album.Id = AlbumId;
+                    album.Id = image.Id;
                     album.Title = image.Title;
                     album.AlbumName = AlbumList[i];
                     album.ThumbnailLink = image.ThumbnailLink;
-                    album.DownloadURL = image.WebContentLink;
+                    album.DownloadURL = image.DownloadUrl;
 
                     albumContent.Add(album);
                 }
@@ -63,6 +63,11 @@ public class Storage : Albums
         return albumStore.Load().FindAll(x => x.AlbumName == Albumname);
     }
 
+    public byte[] DownloadFile(string fileId)
+    {
+        var drive = new GoogleDrive();
+        return drive.DownloadFile(fileId);
+    }
     public void UpdateAlbums()
     {
         for (int i = 0; i < AlbumList.Count; i++)

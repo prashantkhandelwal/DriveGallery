@@ -1,0 +1,14 @@
+﻿@{
+    if (Request.QueryString.Count == 0)
+    {
+        Response.Redirect("Default.cshtml", true);
+    }
+
+    Storage store = new Storage();
+    var name = Request.QueryString["name"].ToString();
+    Response.ContentType = "image/JPEG";
+    Response.AddHeader("Content-Disposition", "attachment; filename=" + name + ".jpg");
+    Response.BinaryWrite(store.DownloadFile(name));
+    Response.End();
+
+}

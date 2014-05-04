@@ -10,7 +10,7 @@ public class Albums
     {
         get
         {
-            return DownloadURL.Replace("&export=download", "&export=view");
+            return ThumbnailLink.Replace("=s220", "=s4000");
         }
     }
     public string ThumbnailLink { get; set; }

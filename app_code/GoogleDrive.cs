@@ -87,6 +87,14 @@ public class GoogleDrive
         return result;
     }
 
+    public byte[] DownloadFile(string fileID)
+    {
+        File file = service.Files.Get(fileID).Execute();
+        var bytes = service.HttpClient.GetByteArrayAsync(file.DownloadUrl);
+        //System.IO.File.WriteAllBytes(file.Title, await bytes);
+        return  bytes.Result;
+    }
+
 
     private async Task Run()
     {
