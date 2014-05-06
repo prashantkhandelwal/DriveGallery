@@ -1,9 +1,9 @@
 ﻿@{
     if (IsPost)
     {
-        if (Request["albumname"].ToString().Trim() != "")
+        if (Context.GetRouteValue("name").ToString().Trim() != "")
         {
-            string albumName = Request["albumname"];
+            string albumName = Context.GetRouteValue("name");
             Storage store = new Storage(albumName);
             store.UpdateAlbums();
         }

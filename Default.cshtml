@@ -24,7 +24,7 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="/">Home</a></li>
                     <li>
-                        <a href="Settings">Settings</a>
+                        <a href="/Settings">Settings</a>
                     </li>
                     @*<li><a href="#contact">Contact</a></li>*@
                 </ul>
@@ -45,7 +45,8 @@
                         <div class="thumbnail">
                             <div class="caption">
                                 <h3>@albums[i]</h3>
-                                <a class="btn btn-primary" href="~/View?name=@albums[i].ToString()">View</a>
+                                @*<a class="btn btn-primary" href="~/View?name=@albums[i].ToString()">View</a>*@
+                                <a class="btn btn-primary" href="~/View/@albums[i].ToString()">View</a>
                             </div>
                         </div>
                     </div>

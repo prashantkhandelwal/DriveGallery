@@ -1,11 +1,12 @@
 ﻿@{
-    if (Request.QueryString.Count == 0)
+    if (Context.GetRouteValue("name") == null || Context.GetRouteValue("name").ToString() == "")
     {
-        Response.Redirect("Default.cshtml", true);
+        Context.Response.RedirectToRoute("Home");
+        Context.Response.End();
     }
 
     Storage store = new Storage();
-    var name = Request.QueryString["name"].ToString();
+    var name = Context.GetRouteValue("name").ToString();
     Response.ContentType = "image/JPEG";
     Response.AddHeader("Content-Disposition", "attachment; filename=" + name + ".jpg");
     Response.BinaryWrite(store.DownloadFile(name));
