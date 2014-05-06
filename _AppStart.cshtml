@@ -1,0 +1,7 @@
+﻿@using System.Web.Routing;
+@{
+    RouteTable.Routes.MapWebPageRoute("Settings", "~/Settings.cshtml");
+    RouteTable.Routes.MapWebPageRoute("Home", "~/Default.cshtml");
+    RouteTable.Routes.MapWebPageRoute("View/{name}", "~/View.cshtml");
+    RouteTable.Routes.MapWebPageRoute("Download/{name}", "~/Download.cshtml");
+}
